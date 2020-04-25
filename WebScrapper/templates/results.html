@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Review Page</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+      <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+
+  <div class="table-users">
+    <form>
+          <input type="button" value="back" onclick="window.location.href='https://review-scrap-moncy.herokuapp.com/';">
+    </form>
+   <div class="header">
+       Reviews</div>
+
+   <table cellspacing="0">
+      <tr>
+         <th>Product</th>
+         <th>Name</th>
+         <th>Rating</th>
+         <th>Comment Heading</th>
+         <th width="230">Comments</th>
+      </tr>
+         {% for review in reviews_list %}
+      <tr>
+          <td>{{review['Product']}}</td>
+         <td>{{review['reviewer_name']}}</td>
+         <td>{{review['review_rating']}}</td>
+         <td>{{review['review_header']}}</td>
+         <td>{{review['review_summary']}} </td>
+       {% endfor %}
+   </table>
+</div>
+
+
+
+</body>
+
+</html>
